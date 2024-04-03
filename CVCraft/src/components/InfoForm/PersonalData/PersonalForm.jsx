@@ -1,21 +1,6 @@
 import "@styles/InfoForm/PersonalData/personal_data_style.css";
-import PropTypes from "prop-types";
 import { useState } from "react";
-
-
-function InputField({ fieldId, value, onChange }) {
-    return <input type={"text"}
-                  id={fieldId}
-                  name={fieldId}
-                  value={value}
-                  onChange={onChange} />;
-}
-
-InputField.propTypes = {
-    fieldId: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
-};
+import InputField from "../shared/InputField.jsx";
 
 function PersonalForm() {
     const [formData, setFormData] = useState({
@@ -24,7 +9,7 @@ function PersonalForm() {
         number: ''
     });
 
-    const handleInputChange = (event) => {
+    function handleInputChange (event) {
         const { name, value } = event.target;
         setFormData(prevState => ({
             ...prevState,
@@ -44,10 +29,8 @@ function PersonalForm() {
                 {personalInputLabels.map((label, index) => (
                     <li key={index}>
                         <label htmlFor={label.fieldName}>{label.label}</label>
-                        <input
-                            type="text"
-                            id={label.fieldName}
-                            name={label.fieldName}
+                        <InputField
+                            fieldId={label.fieldName}
                             value={formData[label.fieldName]}
                             onChange={handleInputChange}
                         />
@@ -58,4 +41,4 @@ function PersonalForm() {
     );
 }
 
-export default PersonalForm;
+export default PersonalForm
