@@ -11,7 +11,7 @@ function InputField({ fieldId, value, onChange }) {
 InputField.propTypes = {
     fieldId: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func
 };
 
 export default InputField;
