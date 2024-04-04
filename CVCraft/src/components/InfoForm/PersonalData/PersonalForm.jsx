@@ -1,4 +1,3 @@
-import "@styles/InfoForm/PersonalData/personal_data_style.css";
 import { useState } from "react";
 import ListInputs from "../shared/ListInputs.jsx";
 import HandleInputChange from "../shared/HandleInputChange.jsx";

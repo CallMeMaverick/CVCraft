@@ -1,11 +1,16 @@
 import PropTypes from "prop-types";
 
 function InputField({ fieldId, value, onChange, type="text" }) {
-    return <input type={type.toString()}
-                  id={fieldId}
-                  name={fieldId}
-                  value={value}
-                  onChange={onChange} />;
+    return (
+        <>
+            {(type.toString() === "date") ? <br /> : ""}
+            <input type={type.toString()}
+                   id={fieldId}
+                   name={fieldId}
+                   value={value}
+                   onChange={onChange}/>
+        </>
+    )
 }
 
 InputField.propTypes = {

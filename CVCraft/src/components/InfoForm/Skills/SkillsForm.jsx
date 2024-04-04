@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "@styles/InfoForm/Skills/skills_style.css"
 
 function Skills() {
     const [skills, setSkills] = useState([]);
