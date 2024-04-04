@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 
-function InputField({ fieldId, value, onChange }) {
-    return <input type={"text"}
+function InputField({ fieldId, value, onChange, type="text" }) {
+    return <input type={type.toString()}
                   id={fieldId}
                   name={fieldId}
                   value={value}
@@ -11,7 +11,7 @@ function InputField({ fieldId, value, onChange }) {
 InputField.propTypes = {
     fieldId: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
 };
 
 export default InputField;
