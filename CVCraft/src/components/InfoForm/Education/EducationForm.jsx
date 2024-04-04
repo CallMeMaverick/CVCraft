@@ -1,5 +1,6 @@
 import { useState } from "react";
-import InputField from "@components/InfoForm/shared/InputField.jsx";
+import ListInputs from "../shared/ListInputs.jsx";
+import HandleInputChange from "../shared/HandleInputChange.jsx";
 
 function EducationForm() {
     const [institutionData, setInstitutionData] = useState({
@@ -9,14 +10,6 @@ function EducationForm() {
         major: "",
         description: ""
     })
-
-    function handleInputChange(event) {
-        const { name, value } = event.target;
-        setInstitutionData(prevState => ({
-            ...prevState,
-            [name]: value
-        }))
-    }
 
     const attributes = [
         { forAttr: "startDate", labelText: "Start date" },
@@ -28,19 +21,19 @@ function EducationForm() {
 
     return (
         <div className={"education-info"}>
-            {attributes.map((attribute, index) => (
-                <li key={index}>
-                    <label htmlFor={attribute.forAttr}>{attribute.labelText}</label>
-                    <InputField
-                        fieldId={attribute.forAttr}
-                        value={institutionData[attribute.forAttr]}
-                        onChange={handleInputChange}
-                        type={attribute.forAttr === "startDate" || attribute.forAttr === "endDate" ? "date" : "text"}
+            <ul>
+                {attributes.map((atr, index) => (
+                    <ListInputs key={index}
+                                value={institutionData[atr.forAttr]}
+                                dataKey={atr.forAttr}
+                                dataName={atr.labelText}
+                                onchangeFunc={e => HandleInputChange(e, setInstitutionData)}
                     />
-                </li>
-            ))}
+                ))}
+            </ul>
         </div>
     )
+
 }
 
 export default EducationForm;
