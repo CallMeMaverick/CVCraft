@@ -4,3 +4,19 @@
     box-sizing: border-box;
 }
 
+:root {
+    --dark-blue: #005689;
+    --light-blue: #007cb9;
+    --ghost-white: #d5eeff;
+    --vivid-orange: #ff895d;
+}
+
+ul {
+    list-style: none;
+}
+
+.delete-skill {
+    color: var(--vivid-orange);
+    padding: 5px;
+    border: none;
+}

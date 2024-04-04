@@ -39,7 +39,7 @@ function Skills() {
                     {skills.map((skill, index) => (
                         <li key={index}>
                         {skill}
-                        <button onClick={() => handleDeletion(skill)}>Delete</button>
+                        <button className={"delete-skill"} onClick={() => handleDeletion(skill)}>Delete</button>
                     </li>)
                     )}
                 </ul>
