@@ -46,3 +46,20 @@ li input[type="text"], input[type="text"] {
     padding: 5px;
     box-sizing: border-box;
 }
+
+
+@media screen and (max-width: 767px) {
+    #root {
+        margin: auto;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+
+    .education-info > ul, .personal-info > ul, .skills-info {
+        text-align: center;
+    }
+
+
+}
