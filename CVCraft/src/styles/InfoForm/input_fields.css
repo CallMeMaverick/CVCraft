@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: black;
+}
+
+:root {
+    --main-color: #005689;
+    --submain-color: #007cb9;
+    --white-color: ghostwhite;
+    --orange-color: #f5764a;
+}
+
+body {
+    background-color: var(--main-color);
+}
+
+.education-info > ul, .personal-info > ul, .skills-info {
+    text-align: left;
+    list-style: none;
+}
+
+#root {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: fit-content;
+    margin: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.wrapper > div {
+    background-color: var(--white-color);
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 0 20px rgb(0, 86, 137);
+    border: 2px solid white;
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+div {
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style: none;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+li > label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+li input[type="text"], input[type="text"], input[id="skill"] {
+    width: 100%;
+    height: 30px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+
+.skill-stack > div, .skill-stack > button {
+    display: flex;
+    flex-direction: row;
+    flex-shrink: 1;
+    min-width: 120px;
+}
+
+.skill-stack > div > p {
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.skills-info-inner {
+    display: flex;
+    flex-direction: row;
+}
+
+.skills-info-inner > input {
+    margin-right: 10px;
+}
+
+button {
+    transition: all 0.2s ease-in-out;
+    border: none;
+    border-radius: 10px;
+    color: var(--white-color);
+    background-color: var(--orange-color);
+    width: 50px;
+}
+
+button:hover {
+    background-color: orange;
+    box-shadow: 0 0 10px var(--orange-color);
+    transition: all 0.2s ease-in-out;
+}
+
+
+@media screen and (max-width: 767px) {
+    #root {
+        margin: auto;
+    }
+
+    .wrapper {
+        width: 100%;
+    }
+
+    .education-info > ul, .personal-info > ul, .skills-info {
+        text-align: center;
+    }
+
+    .skills-info-inner {
+        flex-direction: column;
+    }
+
+    .skills-info-inner > button {
+        margin-top: 10px;
+        width: 100%;
+        height: 30px;
+    }
+
+}
