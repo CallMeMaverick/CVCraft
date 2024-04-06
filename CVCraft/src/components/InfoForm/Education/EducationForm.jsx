@@ -6,36 +6,41 @@ function EducationForm({ educationData, setEducationData }) {
         <>
             <form className="education-info">
                 <h3>Education</h3>
-                <label>Start date</label>
+                <label htmlFor={"startDate"}>Start date</label>
                 <input
+                    id={"startDate"}
                     type={"date"}
                     name="startDate"
                     value={educationData.startDate}
                     onChange={event => HandleInputChange(event, setEducationData)}
                 />
-                <label>End date</label>
+                <label htmlFor={"endDate"}>End date</label>
                 <input
+                    id={"endDate"}
                     type={"date"}
                     name="endDate"
                     value={educationData.endDate}
                     onChange={event => HandleInputChange(event, setEducationData)}
                 />
-                <label>Education Institution</label>
+                <label htmlFor={"eduInstitution"}>Education Institution</label>
                 <input
+                    id={"eduInstitution"}
                     type={"text"}
                     name="eduInstitution"
                     value={educationData.eduInstitution}
                     onChange={event => HandleInputChange(event, setEducationData)}
                 />
-                <label>Major</label>
+                <label htmlFor={"major"}>Major</label>
                 <input
+                    id={"major"}
                     type={"text"}
                     name="major"
                     value={educationData.major}
                     onChange={event => HandleInputChange(event, setEducationData)}
                 />
-                <label>Description</label>
+                <label htmlFor={"description"}>Description</label>
                 <input
+                    id={"description"}
                     type={"text"}
                     name="description"
                     value={educationData.description}

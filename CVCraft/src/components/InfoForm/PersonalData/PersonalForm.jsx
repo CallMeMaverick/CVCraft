@@ -5,25 +5,27 @@ import PropTypes from "prop-types";
 const PersonalForm = ({ formData, setFormData }) => {
     return (
         <>
-
             <form className="personal-info">
                 <h3>Personal Data</h3>
-                <label>Full name</label>
+                <label htmlFor={"fullname"}>Full name</label>
                 <input
+                    id={"fullname"}
                     type={"text"}
                     name="fullname"
                     value={formData.fullname}
                     onChange={event => HandleInputChange(event, setFormData)}
                 />
-                <label>Email</label>
+                <label htmlFor={"email"}>Email</label>
                 <input
+                    id={"email"}
                     type={"text"}
                     name="email"
                     value={formData.email}
                     onChange={event => HandleInputChange(event, setFormData)}
                 />
-                <label>Number</label>
+                <label htmlFor={"number"}>Number</label>
                 <input
+                    id={"number"}
                     type={"text"}
                     name="number"
                     value={formData.number}
