@@ -1,24 +1,6 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
 
-function Skills() {
-    const [skills, setSkills] = useState([]);
-    const [inputSkill, setInputSkill] = useState('');
-
-    function handleAddition() {
-        if (inputSkill) {
-            setSkills(prevState => [...prevState, inputSkill]);
-            setInputSkill('');
-        }
-    }
-
-    function handleInputChange(event) {
-        setInputSkill(event.target.value)
-    }
-
-    function handleDeletion(skillToDelete) {
-        setSkills(skills.filter(skill => skill !== skillToDelete));
-    }
-
+function Skills({ skills, handleAddition, handleDeletion, handleInputChange, value }) {
     return (
         <>
             <div className={"skills-info"}>
@@ -28,24 +10,31 @@ function Skills() {
                     <input
                         id={"skill"}
                         name={"skill"}
-                        value={inputSkill}
+                        value={value}
                         onChange={handleInputChange}
                     />
                     <button onClick={handleAddition}>Add</button>
                 </div>
-            </div>
 
-            <div className={"skill-stack"}>
-                {skills.map((skill, index) => (
-                    <div key={index}>
-                        <p>{skill}</p>
-                        <button className="delete-skill" onClick={() => handleDeletion(skill)}>Delete</button>
-                    </div>
-                ))}
+                <div className={"skill-stack"}>
+                    {skills.map((skill, index) => (
+                        <div key={index}>
+                            <p>{skill}</p>
+                            <button className="delete-skill" onClick={() => handleDeletion(skill)}>Delete</button>
+                        </div>
+                    ))}
+                </div>
             </div>
-
         </>
     )
+}
+
+Skills.propTypes = {
+    skills: PropTypes.array.isRequired,
+    handleAddition: PropTypes.func.isRequired,
+    handleDeletion: PropTypes.func.isRequired,
+    handleInputChange: PropTypes.func.isRequired,
+    value: PropTypes.string.isRequired
 }
 
 export default Skills;

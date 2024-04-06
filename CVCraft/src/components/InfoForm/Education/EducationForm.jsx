@@ -2,15 +2,7 @@ import { useState } from "react";
 import ListInputs from "../shared/ListInputs.jsx";
 import HandleInputChange from "../shared/HandleInputChange.jsx";
 
-function EducationForm() {
-    const [institutionData, setInstitutionData] = useState({
-        startDate: "",
-        endDate: "",
-        eduInstitution: "",
-        major: "",
-        description: ""
-    })
-
+function EducationForm({ educationData, setEducationData }) {
     const attributes = [
         { forAttr: "startDate", labelText: "Start date" },
         { forAttr: "endDate", labelText: "End date" },
@@ -24,10 +16,10 @@ function EducationForm() {
             <ul>
                 {attributes.map((atr, index) => (
                     <ListInputs key={index}
-                                value={institutionData[atr.forAttr]}
+                                value={educationData[atr.forAttr]}
                                 dataKey={atr.forAttr}
                                 dataName={atr.labelText}
-                                onchangeFunc={e => HandleInputChange(e, setInstitutionData)}
+                                onchangeFunc={e => HandleInputChange(e, setEducationData)}
                     />
                 ))}
             </ul>
