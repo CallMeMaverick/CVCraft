@@ -1,37 +1,44 @@
-import ListInputs from "../shared/ListInputs.jsx";
 import HandleInputChange from "../shared/HandleInputChange.jsx";
 import PropTypes from "prop-types";
 
-function PersonalForm({ formData, setFormData }) {
-    const personalInputLabels = [
-        { label: "Full name: ",    fieldName: "fullname" },
-        { label: "Email: ",        fieldName: "email" },
-        { label: "Phone number: ", fieldName: "number" }
-    ];
 
-    console.log(`----> ${formData[personalInputLabels[0].fieldName]}`)
-
+const PersonalForm = ({ formData, setFormData }) => {
     return (
-        <div className={"personal-info"}>
-            <ul>
-                {personalInputLabels.map((person, index) => (
-                    <ListInputs key={index}
-                                value={formData[person.fieldName] || ''}
-                                dataKey={person.fieldName}
-                                dataName={person.label}
-                                onchangeFunc={e => HandleInputChange(e, setFormData)}
-                    />
-                ))}
-            </ul>
-        </div>
+        <>
+
+            <form className="personal-info">
+                <h3>Personal Data</h3>
+                <label>Full name</label>
+                <input
+                    type={"text"}
+                    name="fullname"
+                    value={formData.fullname}
+                    onChange={event => HandleInputChange(event, setFormData)}
+                />
+                <label>Email</label>
+                <input
+                    type={"text"}
+                    name="email"
+                    value={formData.email}
+                    onChange={event => HandleInputChange(event, setFormData)}
+                />
+                <label>Number</label>
+                <input
+                    type={"text"}
+                    name="number"
+                    value={formData.number}
+                    onChange={event => HandleInputChange(event, setFormData)}
+                />
+            </form>
+        </>
     );
-}
+};
 
 PersonalForm.propTypes = {
     formData: PropTypes.shape({
-        fullname: '',
-        email: '',
-        number: ''
+        fullname: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired
     }).isRequired,
     setFormData: PropTypes.func.isRequired
 }

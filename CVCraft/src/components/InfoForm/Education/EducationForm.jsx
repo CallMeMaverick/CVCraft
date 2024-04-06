@@ -1,31 +1,60 @@
-import { useState } from "react";
-import ListInputs from "../shared/ListInputs.jsx";
 import HandleInputChange from "../shared/HandleInputChange.jsx";
+import PropTypes from "prop-types";
 
 function EducationForm({ educationData, setEducationData }) {
-    const attributes = [
-        { forAttr: "startDate", labelText: "Start date" },
-        { forAttr: "endDate", labelText: "End date" },
-        { forAttr: "eduInstitution", labelText: "Institution name" },
-        { forAttr: "major", labelText: "Major" },
-        { forAttr: "description", labelText: "Description" },
-    ]
-
     return (
-        <div className={"education-info"}>
-            <ul>
-                {attributes.map((atr, index) => (
-                    <ListInputs key={index}
-                                value={educationData[atr.forAttr]}
-                                dataKey={atr.forAttr}
-                                dataName={atr.labelText}
-                                onchangeFunc={e => HandleInputChange(e, setEducationData)}
-                    />
-                ))}
-            </ul>
-        </div>
+        <>
+            <form className="education-info">
+                <h3>Education</h3>
+                <label>Start date</label>
+                <input
+                    type={"date"}
+                    name="startDate"
+                    value={educationData.startDate}
+                    onChange={event => HandleInputChange(event, setEducationData)}
+                />
+                <label>End date</label>
+                <input
+                    type={"date"}
+                    name="endDate"
+                    value={educationData.endDate}
+                    onChange={event => HandleInputChange(event, setEducationData)}
+                />
+                <label>Education Institution</label>
+                <input
+                    type={"text"}
+                    name="eduInstitution"
+                    value={educationData.eduInstitution}
+                    onChange={event => HandleInputChange(event, setEducationData)}
+                />
+                <label>Major</label>
+                <input
+                    type={"text"}
+                    name="major"
+                    value={educationData.major}
+                    onChange={event => HandleInputChange(event, setEducationData)}
+                />
+                <label>Description</label>
+                <input
+                    type={"text"}
+                    name="description"
+                    value={educationData.description}
+                    onChange={event => HandleInputChange(event, setEducationData)}
+                />
+            </form>
+        </>
     )
+}
 
+EducationForm.propTypes = {
+    educationData: PropTypes.shape( {
+        startDate: PropTypes.string,
+        endDate: PropTypes.string,
+        eduInstitution: PropTypes.string,
+        major: PropTypes.string,
+        description: PropTypes.string
+    } ).isRequired,
+    setEducationData: PropTypes.func
 }
 
 export default EducationForm;
