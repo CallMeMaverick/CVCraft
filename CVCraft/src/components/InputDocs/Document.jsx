@@ -3,7 +3,7 @@ import MailIcon from "../assets/MailIcon.jsx";
 import PhoneIcon from "../assets/PhoneIcon.jsx";
 
 
-function Document({ personalData, skills }) {
+function Document({ personalData, skills, education }) {
     return (
         <>
             <style>
@@ -48,6 +48,17 @@ function Document({ personalData, skills }) {
                             </ul>
                         </div>
                     </address>
+
+                    <h2>Education</h2>
+                    <div className={"edu-wrapper"}>
+                        {education.map((entry, index) => (
+                            <div key={index} className={"institution"}>
+                                <h3>{entry.eduInstitution}</h3>
+                                <p>{entry.major}</p>
+                                <span>{entry.startDate.slice(0, 4)} | {entry.endDate.slice(0, 4)}</span>
+                            </div>
+                        ))}
+                    </div>
                 </aside>
             </div>
         </>
@@ -56,7 +67,8 @@ function Document({ personalData, skills }) {
 
 Document.propTypes = {
     personalData: PropTypes.object.isRequired,
-    skills: PropTypes.object.isRequired
+    skills: PropTypes.object.isRequired,
+    education: PropTypes.object.isRequired
 }
 
 export default Document;
