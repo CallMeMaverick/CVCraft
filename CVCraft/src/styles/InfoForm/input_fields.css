@@ -75,24 +75,27 @@ input[type="text"], input[type="text"], input[id="skill"] {
 }
 
 .skill-stack {
+    margin-top: 10px;
     display: flex;
     justify-content: center;
     align-self: flex-start;
     flex-wrap: wrap;
     flex-shrink: 1;
+    gap: 5px
 }
 
 
 .skill-stack > div {
     display: flex;
+    justify-content: space-between;
     flex-direction: row;
     min-width: 120px;
     padding: 7px;
+    flex: 1 0 45%
 }
 
 .skill-stack > div > p {
     font-size: 15px;
-    margin-right: 10px;
 }
 
 .skills-info-inner {
