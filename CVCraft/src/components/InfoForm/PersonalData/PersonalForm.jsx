@@ -1,34 +1,83 @@
-import { useState } from "react";
-import ListInputs from "../shared/ListInputs.jsx";
 import HandleInputChange from "../shared/HandleInputChange.jsx";
+import PropTypes from "prop-types";
+import {useState} from "react";
 
-function PersonalForm() {
-    const [formData, setFormData] = useState({
-        fullname: '',
-        email: '',
-        number: ''
-    });
 
-    const personalInputLabels = [
-        { label: "Full name: ",    fieldName: "fullname" },
-        { label: "Email: ",        fieldName: "email" },
-        { label: "Phone number: ", fieldName: "number" }
-    ];
+const PersonalForm = ({ formData, setFormData }) => {
+    const [isFormVisible, setIsFormVisible] = useState(false);
+
+    const toggleFormVisibility = () => {
+        setIsFormVisible(!isFormVisible);
+    };
 
     return (
-        <div className={"personal-info"}>
-            <ul>
-                {personalInputLabels.map((person, index) => (
-                    <ListInputs key={index}
-                                value={formData[person.fieldName]}
-                                dataKey={person.fieldName}
-                                dataName={person.label}
-                                onchangeFunc={e => HandleInputChange(e, setFormData)}
+        <>
+                {!isFormVisible && (
+                    <div className="hidden-div">
+                        <h3>Personal Data</h3>
+                        <span>
+                            <button onClick={toggleFormVisibility}>Show</button>
+                        </span>
+                    </div>
+                )}
+
+
+            {isFormVisible && (
+                <form className="personal-info">
+                    <div className={"header-button"}>
+                        <h3>Personal Data</h3>
+                        <span>
+                            <button onClick={toggleFormVisibility}>Hide</button>
+                    </span>
+                    </div>
+
+                    <label htmlFor={"fullname"}>Full name</label>
+                    <input
+                        id={"fullname"}
+                        type={"text"}
+                        name="fullname"
+                        value={formData.fullname}
+                        onChange={event => HandleInputChange(event, setFormData)}
                     />
-                ))}
-            </ul>
-        </div>
+                    <label htmlFor={"position"}>Position</label>
+                    <input
+                        id={"position"}
+                        type={"text"}
+                        name="position"
+                        value={formData.position}
+                        onChange={event => HandleInputChange(event, setFormData)}
+                    />
+                    <label htmlFor={"email"}>Email</label>
+                    <input
+                        id={"email"}
+                        type={"text"}
+                        name="email"
+                        value={formData.email}
+                        onChange={event => HandleInputChange(event, setFormData)}
+                    />
+                    <label htmlFor={"number"}>Number</label>
+                    <input
+                        id={"number"}
+                        type={"text"}
+                        name="number"
+                        value={formData.number}
+                        onChange={event => HandleInputChange(event, setFormData)}
+                    />
+                </form>
+            )}
+
+        </>
     );
+};
+
+PersonalForm.propTypes = {
+    formData: PropTypes.shape({
+        fullname: PropTypes.string.isRequired,
+        position: PropTypes.string.isRequired,
+        email: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired
+    }).isRequired,
+    setFormData: PropTypes.func.isRequired
 }
 
 export default PersonalForm;

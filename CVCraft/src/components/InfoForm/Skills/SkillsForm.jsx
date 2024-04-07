@@ -1,51 +1,79 @@
-import { useState } from "react";
+import PropTypes from "prop-types";
+import {useState} from "react";
 
-function Skills() {
-    const [skills, setSkills] = useState([]);
-    const [inputSkill, setInputSkill] = useState('');
-
-    function handleAddition() {
+function Skills({ skills, setSkills, inputSkill, setInputSkill }) {
+    const handleAddition = () => {
         if (inputSkill) {
-            setSkills(prevState => [...prevState, inputSkill]);
+            setSkills(prevSkills => [...prevSkills, inputSkill]);
             setInputSkill('');
         }
-    }
+    };
 
-    function handleInputChange(event) {
-        setInputSkill(event.target.value)
-    }
+    const handleInputChange = (event) => {
+        setInputSkill(event.target.value);
+    };
 
-    function handleDeletion(skillToDelete) {
+    const handleDeletion = (skillToDelete) => {
         setSkills(skills.filter(skill => skill !== skillToDelete));
+    };
+
+    const [isFormVisible, setIsFormVisible] = useState(false)
+
+    const toggleVisibility = () => {
+        setIsFormVisible(!isFormVisible);
     }
 
     return (
         <>
-            <div className={"skills-info"}>
-                <label htmlFor={"skill"}>Add skill</label>
-                <br/>
-                <div className={"skills-info-inner"}>
-                    <input
-                        id={"skill"}
-                        name={"skill"}
-                        value={inputSkill}
-                        onChange={handleInputChange}
-                    />
-                    <button onClick={handleAddition}>Add</button>
+            {!isFormVisible && (
+                <div className={"hidden-div"}>
+                    <h3>Skills</h3>
+                    <span>
+                        <button onClick={toggleVisibility}>Show</button>
+                    </span>
                 </div>
-            </div>
+            )}
 
-            <div className={"skill-stack"}>
-                {skills.map((skill, index) => (
-                    <div key={index}>
-                        <p>{skill}</p>
-                        <button className="delete-skill" onClick={() => handleDeletion(skill)}>Delete</button>
+            {isFormVisible && (
+                <div className={"skills-info"}>
+                    <div className={"header-button"}>
+                        <h3>Skills</h3>
+                        <span>
+                        <button onClick={toggleVisibility}>Show</button>
+                    </span>
                     </div>
-                ))}
-            </div>
+                    <label htmlFor={"skill"}>Add skill</label>
+                    <div className={"skills-info-inner"}>
+                        <input
+                            id={"skill"}
+                            name={"skill"}
+                            value={inputSkill}
+                            onChange={handleInputChange}
+                        />
+                        <button type="button" onClick={handleAddition}>Add</button>
+                    </div>
 
+                    <div className={"skill-stack"}>
+                        {skills.map((skill, index) => (
+                            <div key={index}>
+                                <p>{skill}</p>
+                                <button type="button" className="delete-skill"
+                                        onClick={() => handleDeletion(skill)}>Delete
+                                </button>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
         </>
-    )
+    );
 }
+
+Skills.propTypes = {
+    skills: PropTypes.array.isRequired,
+    setSkills: PropTypes.func.isRequired,
+    inputSkill: PropTypes.string.isRequired,
+    setInputSkill: PropTypes.func.isRequired
+};
 
 export default Skills;

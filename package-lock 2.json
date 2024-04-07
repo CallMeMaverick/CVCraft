@@ -1,0 +1,72 @@
+{
+  "name": "CVCraft",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {
+    "": {
+      "dependencies": {
+        "linter": "^0.0.7",
+        "uuid": "^9.0.1"
+      }
+    },
+    "node_modules/argsparser": {
+      "version": "0.0.7",
+      "resolved": "https://registry.npmjs.org/argsparser/-/argsparser-0.0.7.tgz",
+      "integrity": "sha512-jWiKKi8EwhvFhtyY+2x5Y4zOa2Wp93mhQ++0MxcLF/SJNlmf5kro81o/3juM9iQOa6pE/poHAGKl5vP7Cbn8Dg==",
+      "engines": {
+        "node": ">= 0.2.0"
+      }
+    },
+    "node_modules/linter": {
+      "version": "0.0.7",
+      "resolved": "https://registry.npmjs.org/linter/-/linter-0.0.7.tgz",
+      "integrity": "sha512-pm6uLh8VTwkk0K+Mz3JPjb4w0mSJXZlEGGi1RlaDIVFNPWN3dSSuJS7R9SFnTYmKLko8r0m8oz9W9xYAOznGEw==",
+      "hasInstallScript": true,
+      "dependencies": {
+        "argsparser": ">= 0.0.3",
+        "sharedjs": ">= 0.0.1"
+      },
+      "bin": {
+        "linter": "bin/cli.js"
+      },
+      "engines": {
+        "node": ">= 0.3.6"
+      }
+    },
+    "node_modules/sharedjs": {
+      "version": "0.0.2",
+      "resolved": "https://registry.npmjs.org/sharedjs/-/sharedjs-0.0.2.tgz",
+      "integrity": "sha512-OrGypbRKwWapWDvXXKCFtrFuPu1lQTWRCbQ0KPvrwHNTfiH437s50jYBAIaUZF1+Z/nzMZmWe+XhzVVyXjka9w==",
+      "dependencies": {
+        "argsparser": ">= 0.0.3",
+        "uglify-js": ">= 0.0.1"
+      },
+      "engines": {
+        "node": ">= 0.3.0"
+      }
+    },
+    "node_modules/uglify-js": {
+      "version": "3.17.4",
+      "resolved": "https://registry.npmjs.org/uglify-js/-/uglify-js-3.17.4.tgz",
+      "integrity": "sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==",
+      "bin": {
+        "uglifyjs": "bin/uglifyjs"
+      },
+      "engines": {
+        "node": ">=0.8.0"
+      }
+    },
+    "node_modules/uuid": {
+      "version": "9.0.1",
+      "resolved": "https://registry.npmjs.org/uuid/-/uuid-9.0.1.tgz",
+      "integrity": "sha512-b+1eJOlsR9K8HJpow9Ok3fiWOWSIcIzXodvv0rQjVoOVNpWMpxf1wZNpt4y9h10odCNrqnYp1OBzRktckBe3sA==",
+      "funding": [
+        "https://github.com/sponsors/broofa",
+        "https://github.com/sponsors/ctavan"
+      ],
+      "bin": {
+        "uuid": "dist/bin/uuid"
+      }
+    }
+  }
+}
