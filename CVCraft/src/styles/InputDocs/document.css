@@ -103,3 +103,24 @@ address > div {
 }
 
 
+.inner-separation {
+    display: flex;
+    flex-direction: row;
+}
+
+aside {
+    height: 110vh;
+}
+
+.prior-work {
+    padding: 20px;
+}
+
+.prior-work > div > h3 {
+    margin-bottom: 0;
+    margin-top: 20px;
+}
+
+.prior-work > div > p {
+    font-style: italic;
+}
