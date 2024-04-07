@@ -1,15 +1,14 @@
-import { useState } from 'react';
-import PersonalForm from './components/InfoForm/PersonalData/PersonalForm.jsx';
-import Skills from "./components/InfoForm/Skills/SkillsForm.jsx";
-import EducationForm from "./components/InfoForm/Education/EducationForm.jsx";
-import "@styles/InfoForm/input_fields.css"
+import {useState} from "react";
+import PersonalForm from "./PersonalData/PersonalForm.jsx";
+import Skills from "./Skills/SkillsForm.jsx";
+import EducationForm from "./Education/EducationForm.jsx";
 
-
-function App() {
+function Form() {
     const [personalFormData, setPersonalFormData] = useState({
         fullname: '',
+        position: '',
         email: '',
-        number: '',
+        number: ''
     });
 
     const [educationData, setEducationData] = useState({
@@ -25,6 +24,7 @@ function App() {
 
     return (
         <>
+        <div className={"wrapper"}>
             <div>
                 <PersonalForm
                     formData={personalFormData}
@@ -46,10 +46,9 @@ function App() {
                     setEducationData={setEducationData}
                 />
             </div>
+        </div>
         </>
     );
-
 }
 
-export default App;
-
+export default Form;

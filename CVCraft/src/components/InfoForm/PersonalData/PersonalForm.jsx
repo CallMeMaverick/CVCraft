@@ -15,6 +15,14 @@ const PersonalForm = ({ formData, setFormData }) => {
                     value={formData.fullname}
                     onChange={event => HandleInputChange(event, setFormData)}
                 />
+                <label htmlFor={"position"}>Position</label>
+                <input
+                    id={"position"}
+                    type={"text"}
+                    name="position"
+                    value={formData.position}
+                    onChange={event => HandleInputChange(event, setFormData)}
+                />
                 <label htmlFor={"email"}>Email</label>
                 <input
                     id={"email"}
@@ -39,6 +47,7 @@ const PersonalForm = ({ formData, setFormData }) => {
 PersonalForm.propTypes = {
     formData: PropTypes.shape({
         fullname: PropTypes.string.isRequired,
+        position: PropTypes.string.isRequired,
         email: PropTypes.string.isRequired,
         number: PropTypes.string.isRequired
     }).isRequired,
