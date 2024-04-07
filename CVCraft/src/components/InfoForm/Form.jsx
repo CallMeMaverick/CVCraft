@@ -20,6 +20,10 @@ function Form() {
         description: ""
     });
 
+    const handleEducationSubmit = () => {
+        // Do something
+    }
+
     const [skills, setSkills] = useState([]);
     const [inputSkill, setInputSkill] = useState('')
 
@@ -45,6 +49,7 @@ function Form() {
                 <EducationForm
                     educationData={educationData}
                     setEducationData={setEducationData}
+                    onEducationSubmit={handleEducationSubmit}
                 />
             </div>
         </div>

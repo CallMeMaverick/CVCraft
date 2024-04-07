@@ -1,10 +1,15 @@
 import HandleInputChange from "../shared/HandleInputChange.jsx";
 import PropTypes from "prop-types";
 
-function EducationForm({ educationData, setEducationData }) {
+function EducationForm({ educationData, setEducationData, onEducationSubmit }) {
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        onEducationSubmit();
+    }
+
     return (
         <>
-            <form className="education-info">
+            <form className="education-info" onSubmit={handleSubmit}>
                 <h3>Education</h3>
                 <label htmlFor={"startDate"}>Start date</label>
                 <input
@@ -46,6 +51,8 @@ function EducationForm({ educationData, setEducationData }) {
                     value={educationData.description}
                     onChange={event => HandleInputChange(event, setEducationData)}
                 />
+
+                <button type={"submit"}>Add education</button>
             </form>
         </>
     )
@@ -59,7 +66,8 @@ EducationForm.propTypes = {
         major: PropTypes.string,
         description: PropTypes.string
     } ).isRequired,
-    setEducationData: PropTypes.func
+    setEducationData: PropTypes.func.isRequired,
+    onEducationSubmit: PropTypes.func.isRequired
 }
 
 export default EducationForm;
