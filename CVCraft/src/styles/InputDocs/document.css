@@ -121,6 +121,6 @@ aside {
     margin-top: 20px;
 }
 
-.prior-work > div > p {
+.prior-work > div > p[class="pos"] {
     font-style: italic;
 }

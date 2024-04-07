@@ -12,7 +12,7 @@ function WorkExperience({ experienceData, setExperienceData, experienceEntries, 
     }
 
     const handleDeletion = (indexToRemove) => {
-        setExperienceEntries.filter((_, index) => index !== indexToRemove)
+        setExperienceEntries(experienceEntries.filter((_, index) => index !== indexToRemove))
     }
 
     return (

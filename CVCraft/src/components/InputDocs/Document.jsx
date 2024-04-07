@@ -68,8 +68,8 @@ function Document({ personalData, skills, education, experience }) {
                             {experience.map((exp, index) => (
                                 <div key={index}>
                                     <h3>{exp.company}</h3>
-                                    <p>{exp.position}</p>
-                                    <span>{exp.description}</span>
+                                    <p className={"pos"}>{exp.position}</p>
+                                    <p>{exp.description}</p>
                                 </div>
                             ))}
                         </div>
