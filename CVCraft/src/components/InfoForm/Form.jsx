@@ -2,6 +2,7 @@ import {useState} from "react";
 import PersonalForm from "./PersonalData/PersonalForm.jsx";
 import Skills from "./Skills/SkillsForm.jsx";
 import EducationForm from "./Education/EducationForm.jsx";
+import Document from "../InputDocs/Document.jsx";
 
 function Form() {
     const [personalFormData, setPersonalFormData] = useState({
@@ -47,6 +48,10 @@ function Form() {
                 />
             </div>
         </div>
+
+            <div className={"doc-wrapper"}>
+                <Document personalData={personalFormData} />
+            </div>
         </>
     );
 }

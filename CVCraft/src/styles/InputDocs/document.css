@@ -4,6 +4,13 @@
     box-sizing: border-box;
 }
 
+:root {
+    --main-color: #005689;
+    --submain-color: #007cb9;
+    --white-color: ghostwhite;
+    --orange-color: #f5764a;
+}
+
 
 .doc-wrapper {
     flex-grow: 1;
@@ -20,19 +27,34 @@
     background-color: white;
 }
 
+.header {
+    padding: 20px;
+    background-color: var(--submain-color);
+    height: 120px;
+    color: white;
+    text-align: center;
+}
 
+.header > h3 {
+    margin-top: 10px;
+}
 
+aside {
+    background-color: var(--orange-color);
+    width: 300px;
+    height: 100%;
+    overflow: auto;
+    word-wrap: break-word;
+    padding: 20px;
+}
 
-/*.document {*/
-/*    background-color: white;*/
-/*    width: 794px;*/
-/*    height: 1050px;*/
-/*    display: flex;*/
-/*    flex-direction: column;*/
-/*    padding: 25px;*/
-/*    border: 2px solid white;*/
-/*    margin: auto;*/
-/*    transform: scale(1); !* Set scale to 1 to avoid zooming *!*/
-/*    transition: transform 0.3s ease;*/
-/*}*/
+a {
+    font-style: normal;
+    text-decoration: none;
+    color: white;
+}
 
+a:hover {
+    color: dodgerblue;
+    text-decoration: underline;
+}
