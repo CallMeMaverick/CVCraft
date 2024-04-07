@@ -1,4 +1,7 @@
 import PropTypes from "prop-types";
+import MailIcon from "../assets/MailIcon.jsx";
+import PhoneIcon from "../assets/PhoneIcon.jsx";
+
 
 function Document({ personalData }) {
     return (
@@ -11,7 +14,16 @@ function Document({ personalData }) {
 
             <aside>
                 <address>
-                    <p><a href={"mailto:"+personalData.email}>{personalData.email}</a></p>
+                    <div className={"email-wrapper"}>
+                        <MailIcon size={24}/>
+                        <p><a href={"mailto:" + personalData.email}>{personalData.email}</a></p>
+                    </div>
+
+                    <div className={"phone-wrapper"}>
+                        <PhoneIcon size={24} />
+                        <p><a href={"tel:" + personalData.number}>{personalData.number}</a></p>
+                    </div>
+
                 </address>
             </aside>
 

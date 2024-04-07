@@ -58,3 +58,10 @@ a:hover {
     color: dodgerblue;
     text-decoration: underline;
 }
+
+address > div {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding-top: 10px;
+}
