@@ -1,7 +1,23 @@
 import HandleInputChange from "../shared/HandleInputChange.jsx";
 import PropTypes from "prop-types";
 
-function EducationForm({ educationData, setEducationData }) {
+function EducationForm({ educationData, setEducationData, educationEntries, setEducationEntries }) {
+    const handleAddition = () => {
+        setEducationEntries(prevEntries => [...prevEntries, educationData]);
+        // Reset the form
+        setEducationData({
+            startDate: "",
+            endDate: "",
+            eduInstitution: "",
+            major: "",
+            description: ""
+        });
+    };
+
+    const handleDeletion = (indexToDelete) => {
+        setEducationEntries(educationEntries.filter((_, index) => index !== indexToDelete));
+    };
+
     return (
         <>
             <form className="education-info">
@@ -38,28 +54,32 @@ function EducationForm({ educationData, setEducationData }) {
                     value={educationData.major}
                     onChange={event => HandleInputChange(event, setEducationData)}
                 />
-                <label htmlFor={"description"}>Description</label>
-                <input
-                    id={"description"}
-                    type={"text"}
-                    name="description"
-                    value={educationData.description}
-                    onChange={event => HandleInputChange(event, setEducationData)}
-                />
+                <button type="button" className={"add-edu"} onClick={handleAddition}>Add education</button>
+                {educationEntries.map((entry, index) => (
+                    <div key={index} className={"edu-institution"}>
+                        <h3>{entry.eduInstitution}</h3>
+                        <p>{entry.major}</p>
+                        <span>{entry.startDate.slice(0, 4)} | {entry.endDate.slice(0, 4)}</span>
+                        <button type="button" className={"delete-edu"} onClick={() => handleDeletion(index)}>Delete
+                        </button>
+                    </div>
+
+                ))}
             </form>
         </>
     )
 }
 
 EducationForm.propTypes = {
-    educationData: PropTypes.shape( {
+    educationData: PropTypes.shape({
         startDate: PropTypes.string,
         endDate: PropTypes.string,
         eduInstitution: PropTypes.string,
         major: PropTypes.string,
-        description: PropTypes.string
-    } ).isRequired,
-    setEducationData: PropTypes.func
+    }).isRequired,
+    setEducationData: PropTypes.func.isRequired,
+    educationEntries: PropTypes.array.isRequired,
+    setEducationEntries: PropTypes.func.isRequired
 }
 
 export default EducationForm;

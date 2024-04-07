@@ -17,8 +17,10 @@ function Form() {
         endDate: "",
         eduInstitution: "",
         major: "",
-        description: ""
     });
+    const [educationEntries, setEducationEntries] = useState([]);
+
+
 
     const [skills, setSkills] = useState([]);
     const [inputSkill, setInputSkill] = useState('')
@@ -45,12 +47,14 @@ function Form() {
                 <EducationForm
                     educationData={educationData}
                     setEducationData={setEducationData}
+                    educationEntries={educationEntries}
+                    setEducationEntries={setEducationEntries}
                 />
             </div>
         </div>
 
             <div className={"doc-wrapper"}>
-                <Document personalData={personalFormData} skills={skills} />
+                <Document personalData={personalFormData} skills={skills} education={educationEntries} />
             </div>
         </>
     );
