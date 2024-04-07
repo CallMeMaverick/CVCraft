@@ -40,7 +40,7 @@ html, body {
     width: 100%;
 }
 
-.wrapper > div > form, .skills-info {
+.wrapper > div > form, .skills-info, .hidden-div {
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -52,6 +52,12 @@ html, body {
     transform: scale(1.05);
     transition: transform 0.3s ease;
     margin: 5vh;
+}
+
+
+.hidden-personal {
+    margin-bottom: 20px;
+    background-color: var(--white-color);
 }
 
 form {
@@ -128,8 +134,6 @@ button[class="add-edu"], button[class="add-experience"] {
     margin-top: 20px;
 }
 
-
-
 button {
     transition: all 0.2s ease-in-out;
     border: none;
@@ -166,6 +170,28 @@ button:hover {
 
 .institution > p {
     font-style: italic;
+}
+
+.hidden-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.hidden-div > * {
+    margin: 0;
+}
+
+.hidden-div button, .header-button button {
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+}
+
+.header-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 @media screen and (max-width: 767px) {
