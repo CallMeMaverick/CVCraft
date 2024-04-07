@@ -16,19 +16,26 @@ body {
     background-color: var(--main-color);
 }
 
+html, body {
+    min-height: 100vh;
+}
+
+
 .education-info > label, .personal-info > label, .skills-info {
     text-align: left;
     list-style: none;
 }
 
+
 #root {
     display: flex;
-    align-items: flex-start;
+    flex-direction: row;
     justify-content: flex-start;
-    width: fit-content;
+    min-height: 100vh;
+    width: 100%;
     margin: 0;
-    height: 100vh;
 }
+
 
 .wrapper > div {
     width: 100%;
@@ -156,6 +163,10 @@ button:hover {
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    #root {
+        flex-direction: column;
     }
 
     .wrapper > div > form, .skills-info {

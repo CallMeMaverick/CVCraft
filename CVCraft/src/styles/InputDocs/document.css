@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.doc-wrapper {
+    flex-grow: 1;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.document {
+    width: 794px;
+    height: 1000px;
+    background-color: white;
+}
+
+
+
+
+/*.document {*/
+/*    background-color: white;*/
+/*    width: 794px;*/
+/*    height: 1050px;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    padding: 25px;*/
+/*    border: 2px solid white;*/
+/*    margin: auto;*/
+/*    transform: scale(1); !* Set scale to 1 to avoid zooming *!*/
+/*    transition: transform 0.3s ease;*/
+/*}*/
+
