@@ -55,7 +55,7 @@ html, body {
 }
 
 
-.hidden-personal {
+.hidden-div {
     margin-bottom: 20px;
     background-color: var(--white-color);
 }
@@ -201,6 +201,15 @@ button:hover {
         justify-content: center;
     }
 
+    .wrapper > div {
+        display: flex;
+        justify-content: center;
+    }
+
+    #root {
+        flex-direction: column;
+    }
+
     .wrapper > div > form, .skills-info {
         width: 300px;
     }
@@ -234,7 +243,12 @@ button:hover {
         flex-direction: column;
     }
 
-    .wrapper > div > form, .skills-info {
+    .wrapper > div > form, .skills-info, .wrapper > div > div[class='hidden-div'] {
         width: 600px;
+    }
+
+    .wrapper > div {
+        display: flex;
+        justify-content: center;
     }
 }
