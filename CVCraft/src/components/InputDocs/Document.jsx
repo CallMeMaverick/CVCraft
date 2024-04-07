@@ -3,36 +3,60 @@ import MailIcon from "../assets/MailIcon.jsx";
 import PhoneIcon from "../assets/PhoneIcon.jsx";
 
 
-function Document({ personalData }) {
+function Document({ personalData, skills }) {
     return (
-        <div className={"document"}>
+        <>
+            <style>
+                {`
+                    .skills-wrapper ul {
+                      columns: 2;
+                      -webkit-columns: 2;
+                      -moz-columns: 2;
+                    }
+                    .skills-wrapper li {
+                      break-inside: avoid-column;
+                    }
+                  `}
+            </style>
 
-            <div className={"header"}>
-                <h1>{personalData.fullname}</h1>
-                <h3>{personalData.position}</h3>
+            <div className={"document"}>
+
+                <div className={"header"}>
+                    <h1>{personalData.fullname}</h1>
+                    <h3>{personalData.position}</h3>
+                </div>
+
+                <aside>
+                    <h2>Contact Information</h2>
+                    <address>
+                        <div className={"email-wrapper"}>
+                            <MailIcon size={24}/>
+                            <p><a href={"mailto:" + personalData.email}>{personalData.email}</a></p>
+                        </div>
+
+                        <div className={"phone-wrapper"}>
+                            <PhoneIcon size={24}/>
+                            <p><a href={"tel:" + personalData.number}>{personalData.number}</a></p>
+                        </div>
+
+                        <div className={"skills-wrapper"}>
+                            <h2>Skills</h2>
+                            <ul>
+                                {skills.map((skill, index) => (
+                                    <li key={index}>{skill}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </address>
+                </aside>
             </div>
-
-            <aside>
-                <address>
-                    <div className={"email-wrapper"}>
-                        <MailIcon size={24}/>
-                        <p><a href={"mailto:" + personalData.email}>{personalData.email}</a></p>
-                    </div>
-
-                    <div className={"phone-wrapper"}>
-                        <PhoneIcon size={24} />
-                        <p><a href={"tel:" + personalData.number}>{personalData.number}</a></p>
-                    </div>
-
-                </address>
-            </aside>
-
-        </div>
+        </>
     )
 }
 
 Document.propTypes = {
-    personalData: PropTypes.object.isRequired
+    personalData: PropTypes.object.isRequired,
+    skills: PropTypes.object.isRequired
 }
 
 export default Document;

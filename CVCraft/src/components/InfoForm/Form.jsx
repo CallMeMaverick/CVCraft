@@ -50,7 +50,7 @@ function Form() {
         </div>
 
             <div className={"doc-wrapper"}>
-                <Document personalData={personalFormData} />
+                <Document personalData={personalFormData} skills={skills} />
             </div>
         </>
     );

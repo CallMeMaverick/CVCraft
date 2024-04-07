@@ -47,6 +47,14 @@ aside {
     overflow: auto;
     word-wrap: break-word;
     padding: 20px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+aside > h2 {
+    text-align: center;
 }
 
 a {
@@ -60,9 +68,38 @@ a:hover {
     text-decoration: underline;
 }
 
+
 address > div {
     display: flex;
     flex-direction: row;
     gap: 10px;
     padding-top: 10px;
 }
+
+.skills-wrapper {
+    padding-top: 30px;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    color: var(--white-color);
+}
+
+.skills-wrapper > h2 {
+    text-align: center;
+    font-style: normal;
+}
+
+.skills-wrapper ul {
+    columns: 2;
+    -webkit-columns: 2;
+    -moz-columns: 2;
+    padding: 0;
+    list-style-position: inside;
+}
+
+.skills-wrapper li {
+    break-inside: avoid-column;
+    padding: 0.5em 0;
+}
+
+
