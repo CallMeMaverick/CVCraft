@@ -43,16 +43,7 @@ function EducationForm({ educationData, setEducationData, onEducationSubmit }) {
                     value={educationData.major}
                     onChange={event => HandleInputChange(event, setEducationData)}
                 />
-                <label htmlFor={"description"}>Description</label>
-                <input
-                    id={"description"}
-                    type={"text"}
-                    name="description"
-                    value={educationData.description}
-                    onChange={event => HandleInputChange(event, setEducationData)}
-                />
-
-                <button type={"submit"}>Add education</button>
+                <button type={"submit"} className={"add-edu"}>Add education</button>
             </form>
         </>
     )
@@ -64,7 +55,6 @@ EducationForm.propTypes = {
         endDate: PropTypes.string,
         eduInstitution: PropTypes.string,
         major: PropTypes.string,
-        description: PropTypes.string
     } ).isRequired,
     setEducationData: PropTypes.func.isRequired,
     onEducationSubmit: PropTypes.func.isRequired
